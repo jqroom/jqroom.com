@@ -1,10 +1,14 @@
 作者：汤威
+
 链接：http://www.zhihu.com/question/19651401/answer/46211739
+
 来源：知乎
+
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 我来班门弄斧一下吧，把我JavaScript学习过程中常去的一些网站分享给大家：
-=========================增加=================================
+
+==========================================================
 首先增加一个重要的内容：JavaScript | MDN (https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 为什么首先推荐它呢？曾任Mozilla公司首席首席技术官的Brendan Eich是JavaScript主要创造者与架构师。
 这个是 Mozilla 开发者网络社区的学习资料，比W3school 要好，对于疏通JavaScript很有益处。
