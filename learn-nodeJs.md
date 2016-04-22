@@ -1,5 +1,4 @@
-##question: npm 安装 express 报如下错：##
-------------------------------------------------------------------
+##1. question: npm 安装 express 报如下错：##
 C:\Users\jq>npm install express
 npm ERR! Windows_NT 10.0.10586
 npm ERR! argv "D:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Users\\jq\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "express"
@@ -15,6 +14,4 @@ npm ERR! If you need help, you may report this error at:
 npm ERR!     <https://github.com/npm/npm/issues>
 npm ERR! Please include the following file with any support request:
 npm ERR! C:\Users\jq\npm-debug.log
---------------------------------------------------------------------
-
-##solution： 安装其他版本的express##
+solution： 安装其他版本的express
