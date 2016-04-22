@@ -1,3 +1,4 @@
+# windows 10 上使用node.js遇到的问题记录
 ## 1. question: npm 安装 express 报如下错： ##
 C:\Users\jq>npm install express
 
@@ -28,4 +29,4 @@ npm ERR! Please include the following file with any support request:
 
 npm ERR! C:\Users\jq\npm-debug.log
 
-## solution： 安装其他版本的express ##
+## solution： 使用这个安装 npm install -g express-generator ##
