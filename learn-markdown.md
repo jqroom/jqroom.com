@@ -22,7 +22,7 @@ console.log(a + b);
     margin: 0;
     padding: 0;
 }
-.body{
+body{
     overflow: hidden;
     height: 100%;
 }
