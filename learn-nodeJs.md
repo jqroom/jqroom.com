@@ -29,4 +29,4 @@ npm ERR! Please include the following file with any support request:
 
 npm ERR! C:\Users\jq\npm-debug.log
 
-## solution： 使用这个安装 npm install -g express-generator
+## solution： 使用这个安装 npm install -g express-generator    然后使用 express -V 查看版本号
