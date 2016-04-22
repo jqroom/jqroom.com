@@ -30,4 +30,8 @@ console.log(a + b);
 
 2.markdown写入链接
 
-[jq的网站](//jqroom.com/)
+[jq的网站  http://jqroom.com/](http://jqroom.com/)
+
+3.markdown添加图片
+
+![jq的头像](https://avatars2.githubusercontent.com/u/18415185?v=3&s=96)
