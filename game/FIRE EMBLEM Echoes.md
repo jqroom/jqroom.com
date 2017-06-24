@@ -1,5 +1,5 @@
 ## FIRE EMBLEM Echoes
->> 《火焰之纹章 回声 另一位英雄王》（日语：ファイアーエムブレム Echoes もうひとりの英雄王，英语：Fire Emblem Echoes: Shadows of Valentia，港台译作“圣火降魔录 回声 另一位英雄王”，官方译为“FIRE EMBLEM Echoes 另一位英雄王”），由Intelligent Systems开发，任天堂发行。
+> 《火焰之纹章 回声 另一位英雄王》（日语：ファイアーエムブレム Echoes もうひとりの英雄王，英语：Fire Emblem Echoes: Shadows of Valentia，港台译作“圣火降魔录 回声 另一位英雄王”，官方译为“FIRE EMBLEM Echoes 另一位英雄王”），由Intelligent Systems开发，任天堂发行。
 
 ### 电脑模拟：
 - 下载专用模拟器和软件，有cia和cci格式：（链接: [http://pan.baidu.com/s/1pK7y6uR](http://pan.baidu.com/s/1pK7y6uR) 密码: 6etg）
