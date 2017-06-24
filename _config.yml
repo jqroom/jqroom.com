@@ -2,7 +2,7 @@ title: JQ Blog
 description: JQ github blog
 google_analytics: 
 show_downloads: true
-theme: jekyll-theme-midnight
+theme: jekyll-theme-architect
 
 gems:
   - jekyll-mentions
