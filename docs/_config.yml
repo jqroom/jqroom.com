@@ -5,12 +5,15 @@ baseurl: "http://jqroom.com/" # the prefix of your site uri, eg. `/jekyll-theme-
 timezone: Asia/Shanghai
 description: >
   JQ's github page blog.
+pagetarget: 'target="_blank"'
 
 # Your information
 email: jqroom.com@gmail.com
 author: JQ
 avatar: "//avatars2.githubusercontent.com/u/18415185?v=3&s=460"
-profile: 悟已往之不谏，知来者之可追；实迷途其未远，觉今是而昨非。
+profile: >
+    悟已往之不谏，知来者之可追；
+    实迷途其未远，觉今是而昨非。
 #twitter_username: twitter_username
 github_username:  jqroom
 
