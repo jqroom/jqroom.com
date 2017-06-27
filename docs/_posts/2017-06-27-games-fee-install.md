@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My favorite games"
+title:  "FIRE EMBLEM Echoes"
 date:   2017-06-27 11:31
 categories: games
 permalink: /games/fee/install

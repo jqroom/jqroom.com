@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "My technology stack"
+title:  "api"
 date:   2017-06-27 11:31
 categories: collection
-permalink: /collection/hello
+permalink: /collection/api
 ---
 
 ### api
