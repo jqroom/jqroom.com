@@ -16,7 +16,7 @@
     background: #fff;
     font-size: 0.7 * $base-font-size;
     padding: 1px 8px;
-    
+
     &:hover, &:focus {
         color: #666;
     }
@@ -26,7 +26,6 @@
 	padding: 20px 40px;
     list-style: none;
     > li {
-        padding-bottom: 30px;
         border-bottom: 1px solid #CCC;
     	margin-bottom: 30px;
     }

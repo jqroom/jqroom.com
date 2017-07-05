@@ -144,7 +144,7 @@ $ webpack-dev-server --inline
 $ webpack-dev-server  --inline --hot
 ```
 
-# "entry"----字符串VS数组VS对象
+# 3."entry"----字符串VS数组VS对象
 
 entry告诉Webpack入口文件或者起点在哪里。它可以是一个字符串，一个数组或者一个对象。这可能会使你感到困惑，但不同的类型适用于不同的场合。
 
@@ -323,7 +323,7 @@ module: {
 ```
 {
     resolve: {
-        extensions: [‘’, ‘.js’, ‘.jsx’]
+        extensions: ['', '.js', '.jsx']
     }
 }
 ```
