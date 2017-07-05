@@ -5,7 +5,7 @@ baseurl: "http://jqroom.com" # the prefix of your site uri, eg. `/jekyll-theme-E
 timezone: Asia/Shanghai
 description: >
   JQ's github page blog.
-pagetarget: 'target="_blank"'
+pagetarget: ''    # target="_blank"  或 ''
 
 # Your information
 email: jqroom.com@gmail.com
