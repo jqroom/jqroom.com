@@ -451,7 +451,7 @@ inline static uint32_t NextProbe(
 
 #### 6.字符串的哈希计算
 如下所示，依次对字符串的每个字符的unicode编码做处理：
-``
+```
 uint32_t AddCharacterCore(uint32_t running_hash, uint16_t c) {
   running_hash += c;
   running_hash += (running_hash << 10);
