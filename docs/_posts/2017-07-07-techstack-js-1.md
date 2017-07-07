@@ -139,7 +139,7 @@ function nextTarget(node, selector){
 
 最直观的方法是使用双重循环。
 
-### 1.双重循环
+## 1.双重循环
 如下代码所示：
 ```
 var lastHouses = [];
@@ -176,7 +176,7 @@ filterHouse: function(houses){
 ```
 上面代码有一个双重for循环，对新数据的每个元素，判断老数据里面是否已经有了，如果有的话则说明是重复值，如果老数据循环了一遍都没找到，则说明是新数据。由于用到了双重循环，所以这个算法的时间复杂度为O(N*N)，对于百级的数据还好，对于千级的数据可能会有压力，因为最坏情况下要比较1000000次。
 
-### 2.使用Set
+## 2.使用Set
 如下代码所示：
 ```
 var lastHouses = new Set();
@@ -222,7 +222,7 @@ function filterHouse(houses){
 ```
 代码从16行变成了8行，减少了一半。
 
-### 3.使用Map
+## 3.使用Map
 使用Map也是类似的，代码如下所示：
 ```
 var lastHouses = new Map();
@@ -237,7 +237,7 @@ function filterHouse(houses){
 ```
 哈希的查找复杂度为O(1)，因此总的时间复杂度为O(N)，Set/Map都是这样，代价是哈希的存储空间通常为数据大小的两倍
 
-### 4.时间比较
+## 4.时间比较
 最后做下时间比较，为此得先造点数据，比较数据量分别为N = 100, 1000, 10000的时间，有N/2的id是重复的，另外一半的id是不一样的。用以下代码生成：
 ```
 var N = 1000;
@@ -449,7 +449,7 @@ inline static uint32_t NextProbe(
 
 上面讨论的都是数字的哈希，实符串如何做哈希计算呢？
 
-#### 6.字符串的哈希计算
+## 6.字符串的哈希计算
 如下所示，依次对字符串的每个字符的unicode编码做处理：
 ```
 uint32_t AddCharacterCore(uint32_t running_hash, uint16_t c) {
@@ -467,7 +467,7 @@ for(int i = 0; i < strlen(key); i++){
 ```
 接着讨论一个经典话题
 
-## 5.数组去重
+# 5.数组去重
 如下，给一个数组，去掉里面的重复值：
 ```
 var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
@@ -476,7 +476,7 @@ var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
 [3, 62, 38, 20, 42, 14, 5, 29];
 ```
 
-### 方法1：使用Set + Array
+## 方法1：使用Set + Array
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -491,7 +491,7 @@ function uniqueArray(arr){
 
 缺点：需要一个额外的Set和Array的存储空间，空间复杂度为O(N)
 
-### 方法2：使用splice
+## 方法2：使用splice
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -515,7 +515,7 @@ function uniqueArray(arr){
 
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_19.png)
 
-### 方法3：只用Array
+## 方法3：只用Array
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -530,7 +530,7 @@ function uniqueArray(arr){
 ```
 时间复杂度为O(N*N)，空间复杂度为O(N)
 
-### 方法4：使用Object + Array
+## 方法4：使用Object + Array
 下面代码是goog.array的去重实现：
 
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_20.png)
@@ -553,7 +553,7 @@ Object + Array最省时间，splice的方式最耗时（它比较省空间），
 
 上面已经讨论了哈希的数据结构，再来讨论下栈和堆
 
-### 栈和堆
+## 栈和堆
 1. 数据结构的栈
 
 栈的特点是先进后出，只有push和pop两个函数可以操作栈，分别进行压栈和弹栈，还有top函数查看栈顶元素。栈的一个典型应用是做开闭符号的处理，如构建DOM。有以下html：
