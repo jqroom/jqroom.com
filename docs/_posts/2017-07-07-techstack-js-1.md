@@ -431,7 +431,7 @@ map.set(9, "hello");
 
 当然它不是直接存的字符串“hello”，而是存放hello的指针地址，指向实际存放hello的内存位置。
 
-# 5.和JS Object的比较
+## 5.和JS Object的比较
 JSObject主要也是采用哈希存储，具体我在《从Chrome源码看JS Object的实现》这篇文件章里面已经讨论过。
 
 和JS Map不一样的地方是，JSObject的容量是元素个数的两倍，就是上面说的哈希的典型实现。存储结构也不一样，有一个专门存放key和一个存放value的数组，如果能找到key，则拿到这个key的index去另外一个数组取出value值。当发生散列值冲突时，根据当前的index，直接计算下一个查找位置：
@@ -467,7 +467,7 @@ for(int i = 0; i < strlen(key); i++){
 ```
 接着讨论一个经典话题
 
-#### 5.数组去重
+## 5.数组去重
 如下，给一个数组，去掉里面的重复值：
 ```
 var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
@@ -476,7 +476,7 @@ var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
 [3, 62, 38, 20, 42, 14, 5, 29];
 ```
 
-##### 方法1：使用Set + Array
+### 方法1：使用Set + Array
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -491,7 +491,7 @@ function uniqueArray(arr){
 
 缺点：需要一个额外的Set和Array的存储空间，空间复杂度为O(N)
 
-##### 方法2：使用splice
+### 方法2：使用splice
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -515,7 +515,7 @@ function uniqueArray(arr){
 
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_19.png)
 
-##### 方法3：只用Array
+### 方法3：只用Array
 如下代码所示：
 ```
 function uniqueArray(arr){
@@ -530,7 +530,7 @@ function uniqueArray(arr){
 ```
 时间复杂度为O(N*N)，空间复杂度为O(N)
 
-##### 方法4：使用Object + Array
+### 方法4：使用Object + Array
 下面代码是goog.array的去重实现：
 
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_20.png)
@@ -553,7 +553,7 @@ Object + Array最省时间，splice的方式最耗时（它比较省空间），
 
 上面已经讨论了哈希的数据结构，再来讨论下栈和堆
 
-#### 栈和堆
+### 栈和堆
 1. 数据结构的栈
 
 栈的特点是先进后出，只有push和pop两个函数可以操作栈，分别进行压栈和弹栈，还有top函数查看栈顶元素。栈的一个典型应用是做开闭符号的处理，如构建DOM。有以下html：
