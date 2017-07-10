@@ -27,7 +27,7 @@ OK，让我们一起来看看那些"让人困惑"的部分吧。
 
 # 1\. 开发环境 VS 生产环境
 
-第一件需要意识到的事情是Webpack拥有着大量的特性。有一些是"开发环境专用"的，一些是"生产环境专用"的，还有一些是"通用"的。 ![](http://os15c15vv.bkt.clouddn.com/webpack_1.png)
+第一件需要意识到的事情是Webpack拥有着大量的特性。有一些是"开发环境专用"的，一些是"生产环境专用"的，还有一些是"通用"的。 ![](//os15c15vv.bkt.clouddn.com/webpack_1.png)
 
 > 一般来说，大部分的项目都使用了许多Webpack的特性，所以它们通常有两个大的`webpack config`文件，用于区分开发环境和生产环境。
 
@@ -148,19 +148,19 @@ $ webpack-dev-server  --inline --hot
 
 entry告诉Webpack入口文件或者起点在哪里。它可以是一个字符串，一个数组或者一个对象。这可能会使你感到困惑，但不同的类型适用于不同的场合。
 
-如果你使用的是单个起点（大部分项目都是如此），那么你可以使用任意的类型，它们的结果都会是一样的。 ![](http://os15c15vv.bkt.clouddn.com/webpack_2.png)
+如果你使用的是单个起点（大部分项目都是如此），那么你可以使用任意的类型，它们的结果都会是一样的。 ![](//os15c15vv.bkt.clouddn.com/webpack_2.png)
 
 ## entry----数组
 
 但是，如果你想要添加互不依赖的多个文件，你可以使用数组的格式。
 
-举个栗子，你的HTML可能需要"googleAnalytics.js"。你可以告诉Webpack在bundle.js的后面把它添加进去： ![](http://os15c15vv.bkt.clouddn.com/webpack_3.png)
+举个栗子，你的HTML可能需要"googleAnalytics.js"。你可以告诉Webpack在bundle.js的后面把它添加进去： ![](//os15c15vv.bkt.clouddn.com/webpack_3.png)
 
 ## entry----对象
 
 现在，当你有一个包含多个HTML文件的多页应用，而不是单页应用的项目的时候（index.html和profile.html），你可以通过对象格式告诉Webpack去一次性生成多个bundle文件。
 
-下面的配置会生成两个JS文件：`indexEntry.js`和`profileEntry.js`，你可以在`index.html`和`profile.html`分别使用它们： ![](http://os15c15vv.bkt.clouddn.com/webpack_4.png) 使用方法：
+下面的配置会生成两个JS文件：`indexEntry.js`和`profileEntry.js`，你可以在`index.html`和`profile.html`分别使用它们： ![](//os15c15vv.bkt.clouddn.com/webpack_4.png) 使用方法：
 
 ```
 //profile.html
@@ -174,15 +174,15 @@ entry告诉Webpack入口文件或者起点在哪里。它可以是一个字符�
 
 ## entry----组合格式
 
-你也可以在entry对象中使用数组。下面的例子会生成三个文件：一个包含三个文件的`vendor.js`，一个`index.js`和一个`profile.js`。 ![](http://os15c15vv.bkt.clouddn.com/webpack_5.png)
+你也可以在entry对象中使用数组。下面的例子会生成三个文件：一个包含三个文件的`vendor.js`，一个`index.js`和一个`profile.js`。 ![](//os15c15vv.bkt.clouddn.com/webpack_5.png)
 
 # 4\. output -- "path" Vs "publicPath"
 
 output告诉Webpack应该在哪里以怎样的方式去放置打包好的文件。它有两个属性："path"和"publicPath"，这也许会对用户造成一定的困惑。
 
-"path"会简单地告诉Webpack生成文件输出位置。"publicPath"多被一些Webpack的插件使用，在HTML文件以生产环境方式被构建的时候，更新CSS文件内的URL地址。 ![](http://os15c15vv.bkt.clouddn.com/webpack_6.png) 举个栗子，在你的CSS文件里面，你可能会在URL里面加载`./test.png`。但是在生产环境中，`test.png`很可能放在CDN内----比如当你的node.js服务器运行在Heroku的时候。这意味着，你可能在生产环境内不得不手动更新文件内的URL指向。
+"path"会简单地告诉Webpack生成文件输出位置。"publicPath"多被一些Webpack的插件使用，在HTML文件以生产环境方式被构建的时候，更新CSS文件内的URL地址。 ![](//os15c15vv.bkt.clouddn.com/webpack_6.png) 举个栗子，在你的CSS文件里面，你可能会在URL里面加载`./test.png`。但是在生产环境中，`test.png`很可能放在CDN内----比如当你的node.js服务器运行在Heroku的时候。这意味着，你可能在生产环境内不得不手动更新文件内的URL指向。
 
-相反，你可以使用Webpack的`publicPath`以及其他适用于这个属性的插件在生产环境中自动地更新文件内部的URL指向。 ![](http://os15c15vv.bkt.clouddn.com/webpack_7.png)
+相反，你可以使用Webpack的`publicPath`以及其他适用于这个属性的插件在生产环境中自动地更新文件内部的URL指向。 ![](//os15c15vv.bkt.clouddn.com/webpack_7.png)
 
 ```
 //开发环境：服务器和图片都放在本地
@@ -227,7 +227,7 @@ module: {
 }
 ```
 
-这是运行原理： ![](http://os15c15vv.bkt.clouddn.com/webpack_8.png)
+这是运行原理： ![](//os15c15vv.bkt.clouddn.com/webpack_8.png)
 
 1. Webpack搜寻被模块所引用的CSS文件。意思是Webpack会检查一个JS文件内是否有`require(myCssFile.css)`，如果有这句话并且找到了这个依赖，它会首先把这个文件交给`css-loader`。
 2. `css-loader`加载所有的CSS文件及其依赖包（例如通过`@import`引入的其他CSS文件）到一个JSON文件中。随后Webpack会把结果交给`style-loader`。
@@ -237,7 +237,7 @@ module: {
 
 加载器其自身可以通过配置不同的参数实现不同的功能。
 
-在下面的例子中，我们配置了`url-loader`，当图片小于1024byte的时候使用DataURL，当图片大雨1024byte的时候使用URL。我们通过下面两个传入`limit`参数的方法来实现这个功能： ![](http://os15c15vv.bkt.clouddn.com/webpack_9.png)
+在下面的例子中，我们配置了`url-loader`，当图片小于1024byte的时候使用DataURL，当图片大雨1024byte的时候使用URL。我们通过下面两个传入`limit`参数的方法来实现这个功能： ![](//os15c15vv.bkt.clouddn.com/webpack_9.png)
 
 # 7\. babelrc文件
 
