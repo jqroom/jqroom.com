@@ -8,7 +8,7 @@ permalink: /techstack/js/1
 
 # 前端数据结构与算法
 # 1.DOM树
-    由于DOM是一棵树，而树的定义本身就是用的递归定义，所以用递归的方法处理树，会非常地简单自然。例如用递归实现一个查DOM的功能document.getElementById。
+由于DOM是一棵树，而树的定义本身就是用的递归定义，所以用递归的方法处理树，会非常地简单自然。例如用递归实现一个查DOM的功能document.getElementById。
 ```
 function getElementById(node, id){
     if(!node) return null;
@@ -23,6 +23,7 @@ getElementById(document, "d-cal");
 ```
 document是DOM树的根结点，一般从document开始往下找。在for循环里面先找document的所有子结点，对所有子结点递归查找他们的子结点，一层一层地往下查找。如果已经到了叶子结点了还没有找到，则在第二行代码的判断里面返回null，返回之后for循环的i加1，继续下一个子结点。如果当前结点的id符合查找条件，则一层层地返回。所以这是一个深度优先的遍历，每次都先从根结点一直往下直到叶子结点，再从下往上返回。
 最后在控制台验证一下，执行结果如下图所示：
+
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_1.png)
 
 使用递归的优点是代码简单易懂，缺点是效率比不上非递归的实现。Chrome浏览器的查DOM是使用非递归实现。非递归要怎么实现呢？
@@ -59,7 +60,9 @@ function nextElement(node){
 还是用深度遍历，先找当前结点的子结点，如果它有子结点，则下一个元素就是它的第一个子结点，否则判断它是否有相邻元素，如果有则返回它的下一个相邻元素。如果它既没有子结点，也没有下一个相邻元素，则要往上返回它的父结点的下一个相邻元素，相当于上面递归实现里面的for循环的i加1.
 
 在控制台里面运行这段代码，同样也可以正确地输出结果。不管是非递归还是递归，它们都是深度优先遍历，这个过程如下图所示。
+
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_2.png)
+
 实际上getElementById浏览器是用的一个哈希map存储的，根据id直接映射到DOM结点，而getElementsByClassName就是用的这样的非递归查找。
 
 上面是单个选择器的查找，按id，按class等，多个选择器应该如何查找呢？
@@ -117,7 +120,9 @@ function nextTarget(node, selector){
 }
 ```
 有了nextTarge和match这两个函数就可以开始遍历DOM，如下代码所示：
+
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_3.png)
+
 最外层的while循环和简单选择器一样，都是要遍历所有DOM结点。对于每个结点，先判断第一个选择器是否match，如果不match的话，则继续下一个结点，如果不是标签选择器，对于绝大多数结点将会在这里判断不通过。如果第一个选择器match了，则根据第一个选择器的relation，找到下一个target，判断下一个targe是否match下一个selector，只要有一个target匹配上了，则退出里层的while循环，继续下一个选择器，如果所有的selector都能匹配上说明匹配成功。如果有一个selecotr的所有target都没有match，则说明匹配失败，退出selector的for循环，直接从头开始对下一个DOM结点进行匹配。
 
 这样就实现了一个复杂选择器的查DOM。写这个的目的并不是要你自己写一个查DOM的函数拿去用，而是要明白查DOM的过程是怎么样的，可以怎么实现，浏览器又是怎么实现的。还有可以怎么遍历DOM树，当明白这个过程的时候，遇到类似的问题，就可以举一反三。
@@ -379,6 +384,7 @@ var data = [9, 33, 68, 57];
 由于初始化的buckets = 2，计算的结果如下：
 
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_10.png)
+
 由于buckets很小，所以散射值有很多重复的，4个数里面1重复了3次。
 
 现在一个个的插入数据，观察Set数据结构的变化。
