@@ -3,7 +3,7 @@ layout: post
 title: 关于Webpack中一些让人困惑的地方的解答
 date: '2017-07-05 10:10'
 categories: techstack
-permalink: /techstack/webpack/1
+permalink: /techstack/webpack/20170705/1
 ---
 
 > 原文连接: [Webpack -- The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)

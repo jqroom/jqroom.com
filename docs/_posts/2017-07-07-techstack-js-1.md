@@ -3,7 +3,7 @@ layout: post
 title:  "前端数据结构与算法"
 date:   2017-07-07 14:53
 categories: techstack
-permalink: /techstack/js/1
+permalink: /techstack/js/20170707/1
 ---
 
 # 前端数据结构与算法
