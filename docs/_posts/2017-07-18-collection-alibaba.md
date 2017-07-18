@@ -15,7 +15,7 @@ permalink: /collection/20170718/alibaba
 代码：
 
 ```html
-<div style="border: 16px solid #000; position: relative; margin: 30px 0; width: 718px;">
+<div style="border: 16px solid #3f3e3c; position: relative; margin: 30px 0; width: 718px;">
     <div style="position: absolute; height: 50px; line-height: 50px; width: 300px; background-color: #e8325a; margin: -27px 40px; border-radius: 15px; border: 2px solid #fff;font-family: Arial; font-size: 28px; text-align: center; color: #fff;letter-spacing: -2px;">MY TITLE</div>
 </div>
 ```
