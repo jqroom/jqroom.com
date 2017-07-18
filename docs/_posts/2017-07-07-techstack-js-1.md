@@ -9,7 +9,7 @@ permalink: /techstack/js/20170707/1
 # 前端数据结构与算法
 # 1.DOM树
 由于DOM是一棵树，而树的定义本身就是用的递归定义，所以用递归的方法处理树，会非常地简单自然。例如用递归实现一个查DOM的功能document.getElementById。
-```
+```js
 function getElementById(node, id){
     if(!node) return null;
     if(node.id === id) return node;
@@ -29,7 +29,7 @@ document是DOM树的根结点，一般从document开始往下找。在for循环�
 使用递归的优点是代码简单易懂，缺点是效率比不上非递归的实现。Chrome浏览器的查DOM是使用非递归实现。非递归要怎么实现呢？
 
 如下代码：
-```
+```js
 function getByElementId(node, id){
     //遍历所有的Node
     while(node){
@@ -40,7 +40,7 @@ function getByElementId(node, id){
 }
 ```
 还是依次遍历所有的DOM结点，只是这一次改成一个while循环，函数nextElement负责找到下一个结点。所以关键在于这个nextElement如何非递归实现，如下代码所示：
-```
+```js
 function nextElement(node){
     if(node.children.length) {
         return node.children[0];
@@ -72,7 +72,7 @@ function nextElement(node){
 document.querySelector(".mls-info > div .copyright-content")
 ```
 首先把复杂选择器做一个解析，序列为以下格式：
-```
+```js
 //把selector解析为
 var selectors = [
 {relation: "descendant",  matchType: "class", value: "copyright-content"},
@@ -82,7 +82,7 @@ var selectors = [
 从右往左，第一个selector是.copyright-content，它是一个类选择器，所以它的matchType是class，它和第二个选择器是祖先和子孙关系，因此它的relation是descendant；同理第二个选择器的matchType是tag，而relation是child，表示是第三个选择器的直接子结点；第三个选择器也是class，但是它没有下一个选择器了，relation用subSelector表示。
 
 matchType的作用就在于用来比较当前选择器是否match，如下代码所示：
-```
+```js
 function match(node, selector){
     if(node === document) return false;
     switch(selector.matchType){
@@ -103,7 +103,7 @@ function match(node, selector){
 根据不同的matchType做不同的匹配。
 
 在匹配的时候，从右往左，依次比较每个选择器是否match. 在比较下一个选择器的时候，需要找到相应的DOM结点，如果当前选择器是下一个选择器的子孙时，则需要比较当前选择器所有的祖先结点，一直往上直到document；而如果是直接子元素的关系，则比较它的父结点即可。所以需要有一个找到下一个目标结点的函数：
-```
+```js
 function nextTarget(node, selector){
     if(!node || node === document) return null;
     switch(selector.relation){
@@ -146,7 +146,7 @@ function nextTarget(node, selector){
 
 ## 1.双重循环
 如下代码所示：
-```
+```js
 var lastHouses = [];
 filterHouse: function(houses){
     if(lastHouses === null){
@@ -183,7 +183,7 @@ filterHouse: function(houses){
 
 ## 2.使用Set
 如下代码所示：
-```
+```js
 var lastHouses = new Set();
 function filterHouse(houses){
     var remainsHouses = [],
@@ -207,7 +207,7 @@ function filterHouse(houses){
 使用Set和使用Array的区别在于可以减少一重循环，调用Set.prototype.has的函数。Set一般是使用红黑树实现的，红黑树是一种平衡查找二叉树，它的查找时间复杂度为O(logN)。所以时间上进行了改进，从O(N)变成O(logN)，而总体时间从O(N*N)变成O(NlogN)。实际上，Chrome V8的Set是用哈希实现的，它是一个哈希Set，查找时间复杂度为O(1)，所以总体的时间复杂度是O(N).
 
 不管是O(NlogN)还是O(N)，表面上看它们的时间要比O(N*N)的少。但实际上需要注意的是它们前面还有一个系数。使用Set在后面更新lastHouses的时候也是需要时间的：
-```
+```js
 for(var i = 0; i < newHouses.length; i++){
     lastHouses.add(newHouses[i].id);
 }
@@ -215,7 +215,7 @@ for(var i = 0; i < newHouses.length; i++){
 如果Set是用树的实现，这段代码是时间复杂度为O(NlogN)，所以总的时间为O(2NlogN)，但是由于大O是不考虑系数的，O(2NlogN) 还是等于O(NlogN)，当数据量比较小的时侯，这个系数会起到很大的作用，而数据量比较大的时候，指数级增长的O(N*N)将会远远超过这个系数，哈希的实现也是同样道理。所以当数据量比较小时，如只有一两百可直接使用双重循环处理即可。
 
 上面的代码有点冗长，我们可以用ES6的新特性改写一下，变得更加的简洁：
-```
+```js
 function filterHouse(houses){
     var remainsHouses = [],
         newHouses = [];
@@ -229,7 +229,7 @@ function filterHouse(houses){
 
 ## 3.使用Map
 使用Map也是类似的，代码如下所示：
-```
+```js
 var lastHouses = new Map();
 function filterHouse(houses){
     var remainsHouses = [],
@@ -244,7 +244,7 @@ function filterHouse(houses){
 
 ## 4.时间比较
 最后做下时间比较，为此得先造点数据，比较数据量分别为N = 100, 1000, 10000的时间，有N/2的id是重复的，另外一半的id是不一样的。用以下代码生成：
-```
+```js
 var N = 1000;
 var lastHouses = new Array(N);
 var newHouses = new Array(N);
@@ -259,7 +259,7 @@ for(; i < N; i++){
 }
 ```
 然后需要将重复的数据随机分布，可用以下函数把一个数组的元素随机分布：
-```
+```js
 //打散
 function randomIndex(arr){
     for(var i = 0; i < arr.length; i++){
@@ -273,7 +273,7 @@ randomIndex(lastHouses);
 randomIndex(newHouses);
 ```
 Set/Map 的数据：
-```
+```js
 var lastHousesSet = new Set();
 for(var i = 0; i < N; i++){
     lastHousesSet.add(lastHouses[i].id);
@@ -285,7 +285,7 @@ for(var i = 0; i < N; i++){
 }
 ```
 分别重复100次，比较时间：
-```
+```js
 console.time("for time");
 for(var i = 0; i < 100; i++){
     filterHouse(newHouses);
@@ -322,7 +322,7 @@ console.timeEnd("Map time");
 我们来研究一下Chrome V8对Set/Map的实现，源码是在chrome/src/v8/src/js/collection.js这个文件里面，由于Chrome一直在更新迭代，所以有可能以后Set/Map的实现会发生改变，我们来看一下现在是怎么实现的。
 
 如下代码初始化一个 Set：
-```
+```js
 var set = new Set();
 //数据为20个数
 var data = [3, 62, 38, 42, 14, 4, 14, 33, 56, 20, 21, 63, 49, 41, 10, 14, 24, 59, 49, 29];
@@ -333,7 +333,7 @@ for(var i = 0; i < data.length; i++){
 这个Set的数据结构到底是怎么样的呢，是怎么进行哈希的呢？
 
 哈希的一个关键的地方是哈希算法，即对一堆数或者字符串做哈希运算得到它们的随机值，V8的数字哈希算法是这样的：
-```
+```js
 function ComputeIntegerHash(key, seed) {
   var hash = key;
   hash = hash ^ seed;  //seed = 505553720
@@ -347,7 +347,7 @@ function ComputeIntegerHash(key, seed) {
 }
 ```
 把数字进行各种位运算，得到一个比较随机的数，然后对这个数对行散射，如下所示：
-```
+```js
 var capacity = 64;
 var indexes = [];
 for(var i = 0; i < data.length; i++){
@@ -367,7 +367,7 @@ console.log(indexes)
 可以看到散射的结果还是比较均匀的，但是仍然会有重复值，如14重复了3次。
 
 然后进行查找，例如现在要查找key = 56是否存在这个Set里面，先把56进行哈希，然后散射，按照存放的时候同样的过程：
-```
+```js
 function SetHas(key){
     var index = ComputeIntegerHash(56, seed) & this.capacity;
     //可能会有重复值，所以需要验证命中的index所存放的key是相等的
@@ -378,7 +378,7 @@ function SetHas(key){
 上面是哈希存储结构的一个典型实现，但是Chrome的V8的Set/Map并不是这样实现的，略有不同。
 
 哈希算法是一样的，但是散射的时候用来去掉高位的并不是用capacity，而是用capacity的一半，叫做buckets的数量，用以下面的data 做说明：
-```
+```js
 var data = [9, 33, 68, 57];
 ```
 由于初始化的buckets = 2，计算的结果如下：
@@ -427,7 +427,7 @@ var data = [9, 33, 68, 57];
 
 ## 4.Map的实现
 和Set基本一致，不同的地方是，map多了存储value的地方，如下代码：
-```
+```js
 var map = new Map();
 map.set(9, "hello");
 ```
@@ -441,7 +441,7 @@ map.set(9, "hello");
 JSObject主要也是采用哈希存储，具体我在《从Chrome源码看JS Object的实现》这篇文件章里面已经讨论过。
 
 和JS Map不一样的地方是，JSObject的容量是元素个数的两倍，就是上面说的哈希的典型实现。存储结构也不一样，有一个专门存放key和一个存放value的数组，如果能找到key，则拿到这个key的index去另外一个数组取出value值。当发生散列值冲突时，根据当前的index，直接计算下一个查找位置：
-```
+```js
 inline static uint32_t FirstProbe(uint32_t hash, uint32_t size) {
   return hash & (size - 1);
 }
@@ -457,7 +457,7 @@ inline static uint32_t NextProbe(
 
 ## 6.字符串的哈希计算
 如下所示，依次对字符串的每个字符的unicode编码做处理：
-```
+```js
 uint32_t AddCharacterCore(uint32_t running_hash, uint16_t c) {
   running_hash += c;
   running_hash += (running_hash << 10);
@@ -475,7 +475,7 @@ for(int i = 0; i < strlen(key); i++){
 
 # 5.数组去重
 如下，给一个数组，去掉里面的重复值：
-```
+```js
 var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
 
 // 输出
@@ -484,7 +484,7 @@ var a = [3, 62, 3, 38, 20, 42, 14, 5, 38, 29, 42];
 
 ## 方法1：使用Set + Array
 如下代码所示：
-```
+```js
 function uniqueArray(arr){
     return Array.from(new Set(arr));
 }
@@ -499,7 +499,7 @@ function uniqueArray(arr){
 
 ## 方法2：使用splice
 如下代码所示：
-```
+```js
 function uniqueArray(arr){
     for(var i = 0; i < arr.length - 1; i++){
         for(var j = i + 1; j < arr.length; j++){
@@ -523,7 +523,7 @@ function uniqueArray(arr){
 
 ## 方法3：只用Array
 如下代码所示：
-```
+```js
 function uniqueArray(arr){
     var retArray = [];
     for(var i = 0; i < arr.length; i++){
@@ -563,7 +563,7 @@ Object + Array最省时间，splice的方式最耗时（它比较省空间），
 1. 数据结构的栈
 
 栈的特点是先进后出，只有push和pop两个函数可以操作栈，分别进行压栈和弹栈，还有top函数查看栈顶元素。栈的一个典型应用是做开闭符号的处理，如构建DOM。有以下html：
-```
+```html
 <html>
 <head></head>
 <body>
@@ -599,7 +599,7 @@ Object + Array最省时间，splice的方式最耗时（它比较省空间），
 2. 内存栈
 
 函数执行的时候会把局部变量压到一个栈里面，如下函数：
-```
+```js
 function foo(){
     var a = 5,
         b = 6,
@@ -625,7 +625,7 @@ a, b, c三个变量在内存栈的结构如下图所示：
 
 # 6.节流
 节流是前端经常会遇到的一个问题，就是不想让resize/mousemove/scroll等事件触发得太快，例如说最快每100ms执行一次回调就可以了。如下代码不进行节流，直接兼听resize 事件：
-```
+```js
 $(window).on("resize", adjustSlider);
 ```
 
@@ -643,17 +643,17 @@ $(window).on("resize", adjustSlider);
 ![](http://os15c15vv.bkt.clouddn.com/20170707_js_29.png)
 
 一个方法是使用CSS的filter属性，它支持把图片置成灰图的：
-```
+```css
 img{
     filter: grayscale(100%);
 }
 ```
 由于需要把真实的图片数据传给后端，因此需要对图片数据做处理。我们可以用canvas获取图片的数据，如下代码所示：
-```
+```html
 <canvas id="my-canvas"></canvas>
 ```
 JS处理如下：
-```
+```js
 var img = new Image();
 img.src = “/test.jpg”; //通过FileReader等
 img.onload = function(){
@@ -684,7 +684,7 @@ Gray = (Red + Green + Blue) / 3
 ## 2.按人眼对三原色的感知度：绿 > 红 > 蓝
 Gray = (Red * 0.3 + Green * 0.59 + Blue * 0.11)
 第二种方法更符合客观实际，我们采用第二种方法，如下代码所示：
-```
+```js
 function blackWhite() {
     var imgData = ctx.getImageData(10, 10, 31, 30);
     var data = imgData.data;
