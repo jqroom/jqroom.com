@@ -10,7 +10,7 @@ permalink: /collection/20170718/alibaba
 
 展示：
 
-![caidanyangshi.png](https://i.loli.net/2017/07/18/596e1e06c65e7.png)
+![caidan.png](https://i.loli.net/2017/07/18/596e20dee14cf.png)
 
 代码：
 
