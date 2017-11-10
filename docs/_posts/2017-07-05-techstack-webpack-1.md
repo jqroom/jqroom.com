@@ -6,8 +6,6 @@ categories: techstack
 permalink: /techstack/webpack/20170705/1
 ---
 
-> 原文连接: [Webpack -- The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
-
 Webpack是React和Redux项目的主要模块加载器。我认为使用Angular2和其他的框架的人在如今也大量使用Webpack进行开发。
 
 当我第一次查看Webpack的配置文件时，我是懵逼的。在使用过一段时间以后，我觉得这是因为Webpack有着独一无二的语法和标新立异的哲学思想，所以在刚开始使用的时候可能会造成一定的困惑。凑巧的是，这些哲学思想也是让它如此受欢迎的原因。
@@ -347,3 +345,6 @@ module: {
     }
 }
 ```
+
+# End
+原文连接: [Webpack -- The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)
