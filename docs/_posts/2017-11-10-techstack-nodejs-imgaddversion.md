@@ -6,8 +6,6 @@ categories: techstack
 permalink: /techstack/nodejs/20171110/imgaddversion
 ---
 
-# 给文件里面引入的图片增加时间戳
-
 > nodejs小工具，解决重构提供的样式里面引入的图片的缓存问题
 
 ```
