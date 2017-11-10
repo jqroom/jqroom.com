@@ -1,8 +1,0 @@
-var cookieUtils = {
-    //获取cookie
-    getCookie: function(){},
-    //设置cookie
-    setCookie: function(){},
-    //使cookie过期
-    unSetCookie: function(){}
-}
