@@ -10,19 +10,20 @@ WebSocket一种在单个 TCP 连接上进行全双工通讯的协议。WebSocket
 WebSocket 使得客户端和服务器之间的数据交换变得更加简单，允许服务端主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。
 
 > Websocket使用ws或wss的统一资源标志符，类似于HTTPS，其中wss表示在TLS之上的Websocket。如：
->
-```
-ws://example.com/wsapi
-wss://secure.example.com/
-```
+
+    ws://example.com/wsapi
+    wss://secure.example.com/
+
 > Websocket使用和 HTTP 相同的 TCP 端口，可以绕过大多数防火墙的限制。默认情况下，Websocket协议使用80端口；运行在TLS之上时，默认使用443端口。
 
 ## 动手实践
+
 安装依赖：
-```
-npm install --save ws
-```
+
+    npm install --save ws
+
 server.js
+
 ```js
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({
@@ -42,6 +43,7 @@ wss.on('connection', (ws, req) => {
 ```
 
 client.js
+
 ```html
 <!DOCTYPE html>
 <html>

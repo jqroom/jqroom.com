@@ -20,6 +20,7 @@ str.split('').reduce((prev, cur) => (prev[cur] ? prev[cur]++ : prev[cur] = 1, pr
 > reduce的第一个参数是一个function(a, b), 第二个参数是一个初始值。对于function，第一个参数在有默认值的时候取默认值，没有默认值的时候取数组的第一个值，最后被function return之后的值重新赋值。
 
 伪代码如下：
+
 ```javascript
 [1,2,3].reduce(function(a, b){return c;}, d);
 // 如果d存在 a = d, b = 1; a = c;
