@@ -6,7 +6,7 @@ categories: collection
 permalink: /collection/20170718/alibaba
 ---
 
-1. 自定义alibaba发布产品的菜单
+### 自定义alibaba发布产品的菜单
 
 展示：
 

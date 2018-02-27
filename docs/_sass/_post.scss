@@ -1,10 +1,12 @@
 .post {
     .post-header {
+        position: relative;
     	margin: 0 100px;
     	padding: 20px;
         .post-title {
         	font-size:28px;
         	font-weight: normal;
+            text-align: center;
         	margin: 0 -100px;
         	@include media-query($on-palm) {
         		font-size: 34px;
@@ -14,6 +16,8 @@
         	color:#999;
         	font-size:$small-font-size;
         	margin: 0 -100px;
+            position: absolute;
+            right: 0;
         }
         @include media-query($on-palm) {
     		text-align:center;
@@ -38,7 +42,7 @@
         }
 
         pre {
-        	margin: 0 -30px;
+        	margin: 0;
             @include media-query($on-palm) {
 		        margin: 0 -10px;
             }
