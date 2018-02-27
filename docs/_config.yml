@@ -24,7 +24,7 @@ github_username:  jqroom
 #duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
 
 permalink: /archivers/:title
-gems:
+plugins:
  - jekyll-paginate
  - jekyll-gist
  - jemoji
