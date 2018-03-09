@@ -3,7 +3,7 @@ layout: post
 title: Borser cache 浏览器缓存机制
 date: '2018-03-09 15:33'
 categories: techstack
-permalink: /20180309/broser cache
+permalink: /20180309/broser-cache
 ---
 
 通过网络获取内容既速度缓慢又开销巨大。较大的响应需要在客户端与服务器之间进行多次往返通信，这会延迟浏览器获得和处理内容的时间，还会增加访问者的流量费用。因此，缓存并重复利用之前获取的资源的能力成为性能优化的一个关键方面。
