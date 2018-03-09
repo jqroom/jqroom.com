@@ -14,8 +14,6 @@ permalink: /20180309/broser-cache
 
 ![](../images/posts/http-cache-decision-tree.png)
 
-### target和currentTarget的区别
-
 ### 参考
 
 [HTTP 缓存](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching)
