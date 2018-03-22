@@ -6,7 +6,7 @@ categories: techstack
 permalink: /techstack/20180322/vue-data-binding
 ---
 
-vue 双向数据绑定模拟（[查看实例](../demo/vue/vue-data-binding.html)）
+vue 双向数据绑定模拟（[查看示例]({{ site.url }}/demo/vue/vue-data-binding.html)）
 
 ```html
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ vue 双向数据绑定模拟（[查看实例](../demo/vue/vue-data-binding.html)
         <title>test html load</title>
     </head>
     <body>
-        <input id="xss" type="text">
+        var obj = {value: <input id="xss" type="text" value="1">};
         <div id="content" class="">
             hello world
         </div>
