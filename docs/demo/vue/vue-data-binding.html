@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>test html load</title>
+    </head>
+    <body>
+        <input id="xss" type="text">
+        <div id="content" class="">
+            hello world
+        </div>
+
+        <script type="text/javascript">
+            function Observer(obj, key, value){
+                var dep = new Dep();
+                if(Object.prototype.toString.call(value).slice(8, -1) == 'Object'){
+                    Object.keys(value).forEach((key) => {
+                        new Observer(obj, key, value[key]);
+                    });
+                }
+
+                Object.defineProperty(obj, key, {
+                    enumerable: true,
+                    configurable: true,
+                    get: () => {
+                        if(Dep.target){
+                            dep.addSub(Dep.target);
+                        }
+                        return value;
+                    },
+                    set: (newValue) => {
+                        value = newValue;
+                        dep.notify();
+                    }
+                })
+            }
+
+            function Dep(){
+                this.subs = [];
+
+                this.addSub = function(watcher){
+                    var index = this.subs.indexOf(watcher);
+                    if(index == -1){
+                        this.subs.push(watcher);
+                    }
+                }
+
+                this.removeSub = function(watcher){
+                    var index = this.subs.indexOf(watcher);
+                    if(index != -1){
+                        this.subs.splice(index, 1);
+                    }
+                }
+
+                this.notify = function(){
+                    this.subs.forEach((watcher) => {
+                        watcher.update();
+                    });
+                }
+            }
+
+            function Watcher(fn){
+                this.update = function(){
+                    Dep.target = this;
+                    fn();
+                    Dep.target = null;
+                }
+                this.update();
+            }
+
+            var obj = {value: 1};
+            Object.keys(obj).forEach((key) => {
+                new Observer(obj, key, obj[key]);
+            })
+
+            new Watcher(() => {
+                document.getElementById('content').innerHTML = obj.value;
+            });
+
+            document.getElementById('xss').addEventListener('input', () => {
+                obj.value = document.getElementById('xss').value;
+            }, false);
+
+        </script>
+
+    </body>
+</html>
