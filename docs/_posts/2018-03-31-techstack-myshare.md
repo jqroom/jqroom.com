@@ -34,6 +34,8 @@ permalink: /techstack/20180331/knowledge-sharing
     -   macroTask
     -   microTask
 
+PPT下载： [js-and-browser.zip]({{ site.url }}/downloads/js-and-browser.zip)
+
 ## 第二场
 
 #### 1.  vue深度剖析
