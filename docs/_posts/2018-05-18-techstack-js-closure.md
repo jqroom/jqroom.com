@@ -25,9 +25,9 @@ for(var i = 0; i < len; i++){
 
 ##### 控制台输出
 
-![](../images/posts/bibao.gif)
-![](../images/posts/bibao8.gif)
-![](../images/posts/bibao9.gif)
+![]({{ site.url }}/images/posts/bibao.gif)
+![]({{ site.url }}/images/posts/bibao8.gif)
+![]({{ site.url }}/images/posts/bibao9.gif)
 
 > var声明变量会发生“变量提升”现象，并且变量i是存在于global作用域中。
 
@@ -46,9 +46,9 @@ for(let i = 0; i < len; i++){
 
 ##### 控制台输出
 
-![](../images/posts/bibao3.gif)
-![](../images/posts/bibao6.png)
-![](../images/posts/bibao7.png)
+![]({{ site.url }}/images/posts/bibao3.gif)
+![]({{ site.url }}/images/posts/bibao6.png)
+![]({{ site.url }}/images/posts/bibao7.png)
 
 > {}内没用重新定义i，但是可以访问到i，说明i只可能是{}的父集作用域里定义的变量，但是每次i++之后，{}访问的又不是同一个i，因为如果i是同一个，最后输出的效果就和var的方式一样了。
 
@@ -72,8 +72,8 @@ for (let i = 0; i < len; i++) {
 
 ###### 控制台输出
 
-![](../images/posts/bibao4.png)
-![](../images/posts/bibao5.png)
+![]({{ site.url }}/images/posts/bibao4.png)
+![]({{ site.url }}/images/posts/bibao5.png)
 
 > 图中可以看出，for()里面的i和{}里的i是同时存在并且处于两个不同的Block之中。
 
@@ -123,7 +123,7 @@ if (i < 10)
     if (i < 10)
         setTimeout(()=>console.log("i:",i), 1000);
         i++;
-//...
+//{{ site.url }}.
 ```
 
 而使用了let后，会有块级作用域的影响，原来的代码与执行时的去糖模拟代码如下:
@@ -154,7 +154,7 @@ for (let i = 0; i < 10; i++) { setTimeout(()=>console.log("i:",i), 1000); }
             setTimeout(()=>console.log("i:",i), 1000);
         __status = {i};
     }
-    //...
+    //{{ site.url }}.
 ```
 
 为何可以这样模拟？因为在ES标准中，有一段是关于[CreatePerIterationEnvironment](https://tc39.github.io/ecma262/#sec-createperiterationenvironment)，也就是for语句每次循环所要建立环境的步骤，里面有提及有关词法环境的相关步骤(LexicalEnvironment)，这与使用let时会有关。所以，如果你使用了let而不是var，let的变量除了作用域是在for区块中，而且会为每次循环执行建立新的词法环境(LexicalEnvironment)，拷贝所有的变量名称与值到下个循环执行。以最简单的方式改写原先的问题中的代码，相当于下面这样写:
