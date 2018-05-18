@@ -10,7 +10,7 @@ permalink: /techstack/20180517/closure
 
 ### 经典问题
 
-#### var for循环
+-   **var for循环**
 
 ```javascript
 var len = 5;
@@ -23,17 +23,17 @@ for(var i = 0; i < len; i++){
 
 > 以前看到有人说：闭包就是函数里面的函数。在这个例子里面只有一个函数，并没有构成函数里面的函数，因此这种说法是不对的。
 
-##### 控制台输出
+**控制台输出**
 
-![]({{ site.url }}/images/posts/bibao.gif)
-![]({{ site.url }}/images/posts/bibao8.gif)
-![]({{ site.url }}/images/posts/bibao9.gif)
+!\[]({{ site.url }}/images/posts/bibao.gif)
+!\[]({{ site.url }}/images/posts/bibao8.gif)
+!\[]({{ site.url }}/images/posts/bibao9.gif)
 
 > var声明变量会发生“变量提升”现象，并且变量i是存在于global作用域中。
 
 阮一峰老师是这样解释的：上面代码中，变量i是var命令声明的，在全局范围内都有效，所以全局只有一个变量i。每一次循环，变量i的值都会发生改变，而循环内被赋给数组a的函数内部的console.log(i)，里面的i指向的就是全局的i。也就是说，所有数组a的成员里面的i，指向的都是同一个i，导致运行时输出的是最后一轮的i的值，也就是 5。
 
-#### let for循环
+-   **let for循环**
 
 ```javascript
 var len = 5;
@@ -44,21 +44,19 @@ for(let i = 0; i < len; i++){
 }
 ```
 
-##### 控制台输出
+**控制台输出**
 
-![]({{ site.url }}/images/posts/bibao3.gif)
-![]({{ site.url }}/images/posts/bibao6.png)
-![]({{ site.url }}/images/posts/bibao7.png)
+!\[]({{ site.url }}/images/posts/bibao3.gif)
+!\[]({{ site.url }}/images/posts/bibao6.png)
+!\[]({{ site.url }}/images/posts/bibao7.png)
 
 > {}内没用重新定义i，但是可以访问到i，说明i只可能是{}的父集作用域里定义的变量，但是每次i++之后，{}访问的又不是同一个i，因为如果i是同一个，最后输出的效果就和var的方式一样了。
 
 阮一峰老师是这样解释的：上面代码中，变量i是let声明的，当前的i只在本轮循环有效，所以每一次循环的i其实都是一个新的变量，所以最后输出的是0, 1, 2, 3, 4。你可能会问，如果每一轮循环的变量i都是重新声明的，那它怎么知道上一轮循环的值，从而计算出本轮循环的值？这是因为 JavaScript 引擎内部会记住上一轮循环的值，初始化本轮的变量i时，就在上一轮循环的基础上进行计算。
 
-#### let let for循环
+-   **let let for循环**
 
 另外，for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。
-
-##### Situation One
 
 ```javascript
 var len = 5;
@@ -70,10 +68,10 @@ for (let i = 0; i < len; i++) {
 }
 ```
 
-###### 控制台输出
+**控制台输出**
 
-![]({{ site.url }}/images/posts/bibao4.png)
-![]({{ site.url }}/images/posts/bibao5.png)
+!\[]({{ site.url }}/images/posts/bibao4.png)
+!\[]({{ site.url }}/images/posts/bibao5.png)
 
 > 图中可以看出，for()里面的i和{}里的i是同时存在并且处于两个不同的Block之中。
 
@@ -104,7 +102,7 @@ for (let i = 0; i < 10; i++) {
 a[6](); // 6
 ```
 
-#### One
+-   **One**
 
 原来的使用var的代码，与去糖(desugar)后来看它在执行时是这样的模拟代码:
 
@@ -173,9 +171,7 @@ var a = [];
 a[6](); // 6
 ```
 
-#### Two
-
-* * *
+-   **Two**
 
 刚刚想到了一个办法，尝试看看es6经过babel如何转化成es5的。所以大家可以看看转码过后是这样的：
 
@@ -210,9 +206,7 @@ a[6](); // 6
 }
 ```
 
-#### Three
-
-* * *
+-   **Three**
 
 ```javascript
 for (let i = 0 /* 作用域a */; i < 3; console.log("in for expression", i), i++) {

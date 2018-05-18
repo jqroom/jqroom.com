@@ -1,6 +1,6 @@
 # Site settings
 title: JQ Blog
-url: "//jqroom.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
+url: "https://jqroom.com"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `/jekyll-theme-EasyBook` or just one slash `/`
 timezone: Asia/Shanghai
 description: >
