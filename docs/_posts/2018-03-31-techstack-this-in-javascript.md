@@ -3,7 +3,7 @@ layout: post
 title:  "JavaScript中的this"
 date:   2018-06-01 17:30
 categories: techstack
-permalink: /techstack/20180601/arrow-function
+permalink: /techstack/20180601/this-in-javascript
 ---
 
 this常见的指向以及this在箭头函数中的表现
