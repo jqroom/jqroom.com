@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>极简版双向绑定</title>
+</head>
+
+<body>
+    <p>Object.defineProperty版</p>
+    <input id="input" type="text"><br>
+    <span id="span"></span>
+
+    <script type="text/javascript">
+        const obj = {};
+        let value = 0;
+        Object.defineProperty(obj, 'text', {
+            get: function() {
+                console.log('get val');
+                return value;
+            },
+            set: function(newVal) {
+                value = newVal;
+                console.log('set val:' + newVal);
+                document.getElementById('input').value = newVal;
+                document.getElementById('span').innerHTML = newVal;
+            }
+        });
+
+        const input = document.getElementById('input');
+        input.addEventListener('keyup', function(e) {
+            obj.text = e.target.value;
+        });
+    </script>
+</body>
+
+</html>
