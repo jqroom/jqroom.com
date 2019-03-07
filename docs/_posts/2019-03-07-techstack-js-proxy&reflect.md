@@ -100,7 +100,7 @@ newArr.push(6);
 // newArr.values;
 ```
 
-!\[]({{ site.url }}/images/posts/proxy1.gif)
+!\[]({{ site.url }}/images/posts/proxy1.png)
 
 **为什么Array.push()会执行两次get和两次set操作？**
 
