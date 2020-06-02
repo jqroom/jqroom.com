@@ -6,6 +6,8 @@ categories: techstack
 permalink: /techstack/20200602/js-basic-knowledge
 ---
 
+个人网络记事本，主要记录前端相关的一些容易忽略或遗忘的知识点。
+
 ### javascript比较操作符类型转换规则
 1. 如果两个操作值都是数值，则进行数值比较
 1. 如果两个操作值都是字符串，则比较字符串对应的字符编码值
