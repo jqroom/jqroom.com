@@ -2,7 +2,7 @@
 layout: post
 title:  "架构设计-解藕"
 date:   2020-12-26 15:50
-categories: collection
+categories: architecture
 permalink: /architecture/20201226/decoupling
 ---
 
