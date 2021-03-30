@@ -48,9 +48,11 @@ for(let i = 0; i < len; i++){
 
 **控制台输出**
 
-!\[]({{ site.url }}/images/posts/bibao3.gif)
-!\[]({{ site.url }}/images/posts/bibao6.png)
-!\[]({{ site.url }}/images/posts/bibao7.png)
+![]({{ site.url }}/images/posts/bibao3.gif)
+
+![]({{ site.url }}/images/posts/bibao6.png)
+
+![]({{ site.url }}/images/posts/bibao7.png)
 
 > {}内没用重新定义i，但是可以访问到i，说明i只可能是{}的父集作用域里定义的变量，但是每次i++之后，{}访问的又不是同一个i，因为如果i是同一个，最后输出的效果就和var的方式一样了。
 
@@ -72,8 +74,9 @@ for (let i = 0; i < len; i++) {
 
 **控制台输出**
 
-!\[]({{ site.url }}/images/posts/bibao4.png)
-!\[]({{ site.url }}/images/posts/bibao5.png)
+![]({{ site.url }}/images/posts/bibao4.png)
+
+![]({{ site.url }}/images/posts/bibao5.png)
 
 > 图中可以看出，for()里面的i和{}里的i是同时存在并且处于两个不同的Block之中。
 
