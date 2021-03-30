@@ -25,9 +25,11 @@ for(var i = 0; i < len; i++){
 
 **控制台输出**
 
-!\[]({{ site.url }}/images/posts/bibao.gif)
-!\[]({{ site.url }}/images/posts/bibao8.png)
-!\[]({{ site.url }}/images/posts/bibao9.png)
+![]({{ site.url }}/images/posts/bibao.gif)
+
+![]({{ site.url }}/images/posts/bibao8.png)
+
+![]({{ site.url }}/images/posts/bibao9.png)
 
 > var声明变量会发生“变量提升”现象，并且变量i是存在于global作用域中。
 
