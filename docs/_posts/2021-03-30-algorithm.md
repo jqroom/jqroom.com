@@ -7,6 +7,7 @@ permalink: /algorithm/20210330
 ---
 
 ### 求一个数字数组中连续的数字和的最大值
+
 ```javascript
 function getMaxNum2(arr){
     let tmp = 0
@@ -26,6 +27,7 @@ getMaxNum2([1, 2, 3, -2, -1, 4])
 ```
 
 ### 爬楼梯问题，每次可以爬一格，也可以选择爬两格，求到第N格有多少种走法
+
 ```javascript
 function step(n){
     if(n <= 2) return n
