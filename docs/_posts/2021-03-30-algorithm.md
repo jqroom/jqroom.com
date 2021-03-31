@@ -57,3 +57,32 @@ function fb(n){
 
 fb(50)
 ```
+
+### 深拷贝
+
+```javascript
+function dc(v, map = new Map()){
+    if(map.get(v)){ // 防止循环引用
+        return v
+    }
+    if(v === null || v === undefined) return v
+    
+    let vc = v.constructor
+    if(/^(RegExp|Date)$/i.test(vc.name)){
+        return new vc(v)
+    }
+    
+    if(typeof v === 'object'){
+        map.set(v, true)
+        let res = Array.isArray(v) ? [] : {}
+        for(let i in v){
+            if(Object.prototype.hasOwnProperty.call(v, i)){
+                res[i] = dc(v[i], map)
+            }
+        }
+        return res
+    }else{
+        return v
+    }
+}
+```
